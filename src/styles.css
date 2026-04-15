@@ -44,13 +44,17 @@ button, input, textarea { font: inherit; }
 
 .hero {
   display: block;
-  padding: 18px 20px;
+  padding: 18px 22px;
   border: 1px solid rgba(196, 179, 155, 0.55);
-  border-radius: 20px;
+  border-radius: 18px;
   background:
     linear-gradient(135deg, rgba(255, 251, 245, 0.98), rgba(246, 238, 227, 0.92)),
     linear-gradient(180deg, rgba(159, 79, 20, 0.06), transparent 45%);
   box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  max-width: 860px;
 }
 
 .eyebrow, .section-kicker, .panel-label {
@@ -73,23 +77,18 @@ button, input, textarea { font: inherit; }
 
 .hero-copy h1 {
   margin: 0;
-  font-size: 28px;
-  line-height: 1.02;
+  font-size: 32px;
+  line-height: 1.12;
   letter-spacing: -0.02em;
-  max-width: 12ch;
-}
-
-.hero-copy p {
-  margin: 8px 0 0;
-  max-width: 62ch;
-  color: var(--text-muted);
-  font-size: 13px;
-  line-height: 1.6;
+  max-width: 20ch;
 }
 
 .hero-note {
-  font-size: 12px;
+  margin: 10px 0 0;
+  max-width: 58ch;
+  font-size: 14px;
   color: #8a7358;
+  line-height: 1.5;
 }
 
 .tabs, .toolbar, .group-head-actions, .group-mode-actions, .workspace-stats, .summary, .group-meta {
@@ -99,7 +98,7 @@ button, input, textarea { font: inherit; }
   align-items: center;
 }
 
-.tabs { margin-top: 14px; }
+.tabs { margin-top: 10px; }
 
 .tab, .btn {
   appearance: none;
@@ -425,9 +424,9 @@ textarea {
 
 @media (max-width: 760px) {
   .app-shell { padding: 12px; }
-  .hero { padding: 14px; border-radius: 18px; }
-  .hero-copy h1 { font-size: 24px; max-width: none; }
-  .hero-copy p { font-size: 12px; }
+  .hero { padding: 12px 14px; border-radius: 16px; }
+  .hero-copy h1 { font-size: 22px; max-width: none; }
+  .hero-note { font-size: 12px; }
   .tabs { gap: 8px; }
   .tab, .btn { min-height: 36px; }
   .section-header, .panel-body, .workspace-toolbar, .group-head, .group-body { padding: 14px; }

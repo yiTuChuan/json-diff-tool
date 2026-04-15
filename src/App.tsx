@@ -407,6 +407,8 @@ export default function App() {
       const hashTab = readTabFromHash();
       if (hashTab) setActiveTab(hashTab);
     };
+    const hashTab = readTabFromHash();
+    if (hashTab) setActiveTab(hashTab);
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
@@ -447,6 +449,9 @@ export default function App() {
   };
 
   const handleTabChange = (tab: TabKey) => {
+    if (window.location.hash !== `#${tab}`) {
+      window.location.hash = tab;
+    }
     setActiveTab(tab);
   };
 
@@ -534,16 +539,23 @@ export default function App() {
       <section className="hero">
         <div className="hero-copy">
           <span className="eyebrow">Json Diff Tool</span>
-          <h1>JSON Viewer with Diff Workspace</h1>
-          <p>先格式化 JSON，再在工作区里管理多组对比。所有设计都围绕快速输入、快速观察和最少干扰。</p>
-          <p className="hero-note">支持本地保存、自动刷新 diff、组级折叠和差异聚焦。</p>
+          <h1>先格式化 JSON，再开始对比</h1>
+          <p className="hero-note">在一个干净的工作区里管理多组 JSON，对比更快，观察更直接。</p>
           <div className="tabs">
-            <button className={`tab ${activeTab === 'formatter' ? 'active' : ''}`} onClick={() => handleTabChange('formatter')} type="button">
+            <a
+              className={`tab ${activeTab === 'formatter' ? 'active' : ''}`}
+              href="#formatter"
+              onClick={() => handleTabChange('formatter')}
+            >
               格式化 / Viewer
-            </button>
-            <button className={`tab ${activeTab === 'workspace' ? 'active' : ''}`} onClick={() => handleTabChange('workspace')} type="button">
+            </a>
+            <a
+              className={`tab ${activeTab === 'workspace' ? 'active' : ''}`}
+              href="#workspace"
+              onClick={() => handleTabChange('workspace')}
+            >
               对比工作区
-            </button>
+            </a>
           </div>
         </div>
       </section>
